@@ -1,0 +1,11 @@
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - run: wget https://curl.se/windows/dl-7.85.0_1/curl-7.85.0_1-win64-mingw.zip -o curl.zip
+      - run: unzip curl.zip
+      - run: curl*/bin/curl.exe --json '"ä"' http://httpbin.org/post
